@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AICTE Facebok</title>
+    <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"></div>
+
+    <!-- <fb:login-button 
+    scope="public_profile,email"
+    onlogin="checkLoginState();">
+  </fb:login-button>
+
+
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1688083241566689',
+                cookie: true,
+                xfbml: true,
+                version: 'v14.0'
+            });
+
+            FB.AppEvents.logPageView();
+            FB.getLoginStatus(function (response) {
+            // statusChangeCallback(response);
+            console.log(response);
+            function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+        });
+
+        };
+    </script> -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v14.0&appId=1688083241566689&autoLogAppEvents=1" nonce="NFq5zxq5"></script>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1688083241566689',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v14.0'
+            });
+        };
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+            console.log(response);
+        });
+
+        // FB.login(function (response) {
+        //     if (response.status === 'connected') {
+        //         // Logged into your webpage and Facebook.
+        //     } else {
+        //         // The person is not logged into your webpage or we are unable to tell. 
+        //     }
+        //     // handle the response
+        // }, { scope: 'public_profile,email' });
+
+        // FB.logout(function (response) {
+        //     // Person is now logged out
+        // });
+    </script>
+    <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js"></script>  -->
+</body>
+
+</html>
