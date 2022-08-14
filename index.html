@@ -11,12 +11,14 @@
     <link href="" rel="stylesheet">
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v14.0&appId=1688083241566689&autoLogAppEvents=1" nonce="NFq5zxq5"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"></div>
 <a href="/index2.html" target="_blank" rel="">index2</a>
+
+<p id="loginfb">Login FB</p>
     <!-- <fb:login-button 
     scope="public_profile,email"
     onlogin="checkLoginState();">
@@ -68,14 +70,20 @@
             console.log(response);
         });
 
-        // FB.login(function (response) {
-        //     if (response.status === 'connected') {
-        //         // Logged into your webpage and Facebook.
-        //     } else {
-        //         // The person is not logged into your webpage or we are unable to tell. 
-        //     }
-        //     // handle the response
-        // }, { scope: 'public_profile,email' });
+        $('#loginfb').click(function () {
+             FB.login(function (response) {
+            if (response.status === 'connected') {
+                // Logged into your webpage and Facebook.
+                console.log(response)
+            } else {
+                console.log(response)
+                // The person is not logged into your webpage or we are unable to tell. 
+            }
+            // handle the response
+        }, { scope: 'public_profile,email' });
+        });
+
+       
 
         // FB.logout(function (response) {
         //     // Person is now logged out
