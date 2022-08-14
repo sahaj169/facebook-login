@@ -10,55 +10,16 @@
     <meta name="keywords" content="">
     <link href="" rel="stylesheet">
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v14.0&appId=1688083241566689&autoLogAppEvents=1" nonce="NFq5zxq5"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <a href="/index2.html" target="_blank" rel="">index2</a>
-
     <a id="loginfb">Login FB</a>
     <a id="logoutfb">Logout FB</a>
-    <!-- <fb:login-button 
-    scope="public_profile,email"
-    onlogin="checkLoginState();">
-  </fb:login-button>
-
-
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '1688083241566689',
-                cookie: true,
-                xfbml: true,
-                version: 'v14.0'
-            });
-
-            FB.AppEvents.logPageView();
-            FB.getLoginStatus(function (response) {
-            // statusChangeCallback(response);
-            console.log(response);
-            function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
-        });
-
-        };
-    </script> -->
     <div id="fb-root"></div>
     <script>
         $(document).ready(function () {
-            // Execute some code here
             console.log("document ready")
             window.fbAsyncInit = function () {
                 FB.init({
@@ -81,21 +42,18 @@
         $('#loginfb').click(function () {
             FB.login(function (response) {
                 if (response.status === 'connected') {
-                    // Logged into your webpage and Facebook.
                     console.log(response)
                     console.log("Connected")
                     alert("User FB Login")
                 } else {
                     console.log(response)
                     console.log("Error")
-                    // The person is not logged into your webpage or we are unable to tell. 
                 }
-                // handle the response
             }, { scope: 'public_profile,email' });
         });
+
         $('#logoutfb').click(function () {
             FB.logout(function (response) {
-                // Person is now logged out
                 console.log(response)
                 alert("User FB Logout")
             });
@@ -105,7 +63,6 @@
 
 
     </script>
-    <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js"></script>  -->
 </body>
 
 </html>
