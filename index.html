@@ -15,10 +15,10 @@
 </head>
 
 <body>
-    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"></div>
-<a href="/index2.html" target="_blank" rel="">index2</a>
+    <a href="/index2.html" target="_blank" rel="">index2</a>
 
-<p id="loginfb">Login FB</p>
+    <a id="loginfb">Login FB</a>
+    <a id="logoutfb">Logout FB</a>
     <!-- <fb:login-button 
     scope="public_profile,email"
     onlogin="checkLoginState();">
@@ -57,37 +57,53 @@
     </script> -->
     <div id="fb-root"></div>
     <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '1688083241566689',
-                autoLogAppEvents: true,
-                xfbml: true,
-                version: 'v14.0'
+        $(document).ready(function () {
+            // Execute some code here
+            console.log("document ready")
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '1688083241566689',
+                    autoLogAppEvents: true,
+                    xfbml: true,
+                    version: 'v14.0'
+                });
+            };
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+                console.log(response);
             });
-        };
-        FB.getLoginStatus(function (response) {
-            statusChangeCallback(response);
-            console.log(response);
         });
+    </script>
+    <script>
+
+
 
         $('#loginfb').click(function () {
-             FB.login(function (response) {
-            if (response.status === 'connected') {
-                // Logged into your webpage and Facebook.
+            FB.login(function (response) {
+                if (response.status === 'connected') {
+                    // Logged into your webpage and Facebook.
+                    console.log(response)
+                    console.log("Connected")
+                    alert("User FB Login")
+                } else {
+                    console.log(response)
+                    console.log("Error")
+                    // The person is not logged into your webpage or we are unable to tell. 
+                }
+                // handle the response
+            }, { scope: 'public_profile,email' });
+        });
+        $('#logoutfb').click(function () {
+            FB.logout(function (response) {
+                // Person is now logged out
                 console.log(response)
-            } else {
-                console.log(response)
-                // The person is not logged into your webpage or we are unable to tell. 
-            }
-            // handle the response
-        }, { scope: 'public_profile,email' });
+                alert("User FB Logout")
+            });
         });
 
-       
 
-        // FB.logout(function (response) {
-        //     // Person is now logged out
-        // });
+
+
     </script>
     <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js"></script>  -->
 </body>
