@@ -30,7 +30,6 @@
                 });
             };
             FB.getLoginStatus(function (response) {
-                statusChangeCallback(response);
                 console.log(response);
             });
         });
@@ -49,7 +48,7 @@
                     console.log(response)
                     console.log("Error")
                 }
-            }, { scope: 'public_profile,email pages_show_list,read_page_mailboxes,pages_messaging,pages_read_engagement, pages_manage_metadata,pages_manage_posts,pages_read_engagement,pages_read_user_content,manage_pages,publish_video,pages_manage_cta,pages_manage_engagement,read_insights,user_likes, user_posts,user_photos' });
+            }, { scope: 'public_profile,email, pages_show_list,read_page_mailboxes,pages_messaging,pages_read_engagement, pages_manage_metadata,pages_manage_posts,pages_read_engagement,pages_read_user_content,manage_pages,publish_video,pages_manage_cta,pages_manage_engagement,read_insights,user_likes, user_posts,user_photos' });
         });
 
         $('#logoutfb').click(function () {
