@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <a href="/index2.html" target="_blank" rel="">index2</a>
+    <a href="index2.html" target="_blank" rel="">index2</a>
     <a id="loginfb">Login FB</a>
     <a id="logoutfb">Logout FB</a>
     <div id="fb-root"></div>
@@ -48,9 +48,9 @@
                     console.log(response)
                     console.log("Error")
                 }
-            }, { scope: 'public_profile,email, pages_show_list,read_page_mailboxes,pages_messaging,pages_read_engagement, pages_manage_metadata,pages_manage_posts,pages_read_engagement,pages_read_user_content,publish_video,pages_manage_cta,pages_manage_engagement,read_insights,user_likes, user_posts,user_photos' });
+            }, { scope: 'public_profile,email' });
         });
-
+        // , pages_show_list,read_page_mailboxes,pages_messaging,pages_read_engagement, pages_manage_metadata,pages_manage_posts,pages_read_engagement,pages_read_user_content,publish_video,pages_manage_cta,pages_manage_engagement,read_insights,user_likes, user_posts,user_photos
         $('#logoutfb').click(function () {
             FB.logout(function (response) {
                 console.log(response)
